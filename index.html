@@ -97,7 +97,7 @@
     }
 
     const randomIndex = Math.floor(Math.random() * terroristData.length);
-    const currentTerrorist = terroristData[randomIndex];
+    const currentTerrorist = terroristData[totalQuestionsAnswered];
     const correctAnswer = currentTerrorist.TOrgutAdi;
     const uniqueTerroristNames = Array.from(new Set(terroristData.map(data => data.TOrgutAdi)));
     const indexToRemove = uniqueTerroristNames.indexOf(correctAnswer);
@@ -129,15 +129,15 @@
   async function checkQuestionCount() {
     totalQuestionsAnswered++;
 
-    if (totalQuestionsAnswered % 20 === 0) {
+    if (totalQuestionsAnswered == 15) {
       const successRate = ((correctScore / totalQuestionsAnswered) * 100).toFixed(2);
 
       let title = '';
 
       if (successRate >= 80) {
-        title = 'MIT goreve cagiriyor!';
+        title = 'UCMAK LAZIM GENC GÖREMEDİKLERİNİ GÖRMEN LAZIM';
       } else if (successRate >= 60) {
-        title = 'Yuru be babus!';
+        title = 'FAKODA CESUKU DİNLE BE AG!';
       } else if (successRate >= 40) {
         title = 'Ha gayret.';
       } else {
